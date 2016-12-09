@@ -179,6 +179,6 @@ class HtaccessGenerateForm extends ConfigFormBase {
 
     drupal_set_message(t('A new htaccess profile has been generated.'));
     
-    return new RedirectResponse(\Drupal::url('htaccess.admin_deployment'));
+    $form_state->setRedirect('htaccess.admin_deployment');
   }
 }
