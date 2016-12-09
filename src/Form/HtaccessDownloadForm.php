@@ -51,9 +51,15 @@ class HtaccessDownloadForm extends FormBase {
 
     $htaccess_folder = 'public://htaccess';
 
-    $htaccess_file = file_save_data($htaccess_content, "$htaccess_folder/$file_name", FILE_EXISTS_RENAME);
+    //$htaccess_file = file_save_data($htaccess_content, "$htaccess_folder/$file_name", FILE_EXISTS_RENAME);
+    if(file_prepare_directory($htaccess_folder, FILE_CREATE_DIRECTORY)) {
 
-    return new BinaryFileResponse($htaccess_file->getFileUri(), 200, array(
+      file_save_htaccess($htaccess_folder, true, false);
+    }
+
+    $htaccess_file = file_unmanaged_save_data($htaccess_content, "$htaccess_folder/$file_name", FILE_EXISTS_RENAME);
+
+    return new BinaryFileResponse($htaccess_file, 200, array(
       'Content-Type' => 'application/octet-stream',
       'Content-disposition' => 'attachment; filename='.$file_name));
   }
