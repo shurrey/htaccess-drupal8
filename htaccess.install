@@ -30,7 +30,8 @@ $schema['htaccess'] = array(
       ),
       'htaccess' => array(
         'description' => t('The htaccess rules generated.'),
-        'type' => 'text',
+        'type' => 'blob',
+	'size' => 'big',
         'not null' => TRUE,
       ),
       'deployed' => array(
