@@ -70,7 +70,7 @@ class HtaccessAdminForm extends ConfigFormBase {
     $form['htaccess_settings']['htaccess_settings_symlinks'] = array(
       '#type' => 'radios',
       '#title' => t('Symbolic links'),
-      '#description' => t('Define the Apache\'s right options to access to parts of the filesystem. Default: +FollowSymLinks.<br />For more informations, see <a href="@link_apache" target="_blank">http://httpd.apache.org/docs/2.2/urlmapping.html#outside</a>.', array('@link_apache' => \Drupal\Core\Url::fromUri('http://httpd.apache.org/docs/2.2/urlmapping.html#outside'))),
+      '#description' => t('Define the Apache\'s right options to access to parts of the filesystem. Default: +FollowSymLinks.<br />For more informations, see <a href="@link_apache" target="_blank">http://httpd.apache.org/docs/2.2/urlmapping.html#outside</a>.', array('@link_apache' => \Drupal\Core\Url::fromUri('http://httpd.apache.org/docs/2.2/urlmapping.html#outside')->toString())),
       '#options' => $htaccess_settings_symlinks_options,
       '#default_value' => $config->get('htaccess_settings_symlinks'),
     );
@@ -83,7 +83,7 @@ class HtaccessAdminForm extends ConfigFormBase {
     $form['htaccess_settings']['htaccess_settings_ssl'] = array(
       '#type' => 'radios',
       '#title' => t('HTTP Secure (HTTPS)'),
-      '#description' => t('Before activating the HTTPS support, you should first get a valid certificate, then configure your web server.<br />For more informations, see <a href="@link_ssl" target="_blank">https://www.drupal.org/https-information</a>.', array('@link_ssl' => \Drupal\Core\Url::fromUri('https://www.drupal.org/https-information'))),
+      '#description' => t('Before activating the HTTPS support, you should first get a valid certificate, then configure your web server.<br />For more informations, see <a href="@link_ssl" target="_blank">https://www.drupal.org/https-information</a>.', array('@link_ssl' => \Drupal\Core\Url::fromUri('https://www.drupal.org/https-information')->toString())),
       '#options' => $htaccess_settings_ssl_options,
       '#default_value' => $config->get('htaccess_settings_ssl'),
     );
