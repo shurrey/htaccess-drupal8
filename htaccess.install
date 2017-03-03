@@ -114,7 +114,7 @@ function htaccess_requirements($phase) {
  * Remove all variables. Table will be removed by Core.
  */
 function htaccess_uninstall() {
-  db_query("DELETE FROM {variable} WHERE name LIKE 'htaccess_%'");
+/*  db_query("DELETE FROM {variable} WHERE name LIKE 'htaccess'"); */
 }
 
 /**
